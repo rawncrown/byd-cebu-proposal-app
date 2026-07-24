@@ -1,4 +1,4 @@
-const CACHE_NAME = "byd-proposal-v4";
+const CACHE_NAME = "byd-proposal-v2";
 const BASE_PATH = new URL("./", self.location.href).pathname;
 const APP_SHELL = [BASE_PATH, `${BASE_PATH}manifest.webmanifest`, `${BASE_PATH}icon-192.png`, `${BASE_PATH}icon-512.png`];
 
