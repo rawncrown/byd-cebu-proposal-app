@@ -436,7 +436,7 @@ function extractFields(text){
     cs_no: find(/CONDUCTION\s+([A-Za-z0-9]+ ?[A-Za-z0-9]*)\s*\nSTICKER NO\.?:/),
     year_model: find(/YEAR:\s*(\d{4})/),
     chassis: find(/CHASSIS NO\.?:\s*([A-Za-z0-9]+)/),
-    engine: find(/ENGINE NO\.?:\s*([A-Za-z0-9 ]+?)(?:\s+PISTON|\n)/),
+    engine: find(/ENGINE\s+NO\.?\s*:\s*([A-Za-z0-9][A-Za-z0-9 \-]*?)(?=\s+(?:MAX\s+POWER(?:\s*\([^)]*\))?|FUEL\s+TYPE(?:\/POWER)?|CP\s+NO\.?|CYLINDERS|CHASSIS\s+NO\.?)\s*:|\s+PISTON\b|\n|$)/i),
     color: find(/COLOR:\s*([A-Za-z ]+?)(?:\s+DATE ISSUED|\n)/)
   };
 }
