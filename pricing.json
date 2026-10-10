@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-10T00:00:00.000Z",
+  "updatedAt": "2026-10-10T01:45:52.349Z",
   "activeCampaignId": "2026-10",
   "campaigns": [
     {
       "id": "2026-10",
-      "label": "October 2026 promo",
+      "label": "FREE Wall Charger Installation",
       "vehicles": [
         {
           "key": "atto2-ev:premium",
@@ -231,7 +231,7 @@
         },
         {
           "key": "atto2-dmi:dynamic",
-          "name": "ATTO 2 DM-i \u00b7 DYNAMIC",
+          "name": "ATTO 2 DM-i · DYNAMIC",
           "srp": 1108000,
           "cashDiscount": 50000,
           "banks": {
@@ -453,7 +453,7 @@
         },
         {
           "key": "atto2-dmi:premium",
-          "name": "ATTO 2 DM-i \u00b7 PREMIUM",
+          "name": "ATTO 2 DM-i · PREMIUM",
           "srp": 1318000,
           "cashDiscount": 50000,
           "banks": {
@@ -675,7 +675,7 @@
         },
         {
           "key": "new-seal5-dmi:essential",
-          "name": "NEW SEAL 5 DM-i \u00b7 ESSENTIAL",
+          "name": "NEW SEAL 5 DM-i · ESSENTIAL",
           "srp": 1008000,
           "cashDiscount": 50000,
           "banks": {
@@ -897,7 +897,7 @@
         },
         {
           "key": "new-seal5-dmi:dynamic",
-          "name": "NEW SEAL 5 DM-i \u00b7 DYNAMIC",
+          "name": "NEW SEAL 5 DM-i · DYNAMIC",
           "srp": 1108000,
           "cashDiscount": 50000,
           "banks": {
@@ -1275,7 +1275,7 @@
         },
         {
           "key": "seal5-dmi:dynamic",
-          "name": "SEAL 5 DM-i \u00b7 DYNAMIC",
+          "name": "SEAL 5 DM-i · DYNAMIC",
           "srp": 1018000,
           "cashDiscount": 70000,
           "banks": {
@@ -1497,7 +1497,7 @@
         },
         {
           "key": "seal5-dmi:premium",
-          "name": "SEAL 5 DM-i \u00b7 PREMIUM",
+          "name": "SEAL 5 DM-i · PREMIUM",
           "srp": 1258000,
           "cashDiscount": null,
           "banks": {
@@ -2163,7 +2163,7 @@
         },
         {
           "key": "emax7:standard",
-          "name": "eMAX 7 \u00b7 STANDARD",
+          "name": "eMAX 7 · STANDARD",
           "srp": 1618000,
           "cashDiscount": 60000,
           "banks": {
@@ -2385,7 +2385,7 @@
         },
         {
           "key": "emax7:superior-captain",
-          "name": "eMAX 7 \u00b7 SUPERIOR CAPTAIN",
+          "name": "eMAX 7 · SUPERIOR CAPTAIN",
           "srp": 1838000,
           "cashDiscount": 20000,
           "banks": {
@@ -2607,7 +2607,7 @@
         },
         {
           "key": "atto3:dynamic",
-          "name": "ATTO 3 \u00b7 DYNAMIC",
+          "name": "ATTO 3 · DYNAMIC",
           "srp": 1708000,
           "cashDiscount": 70000,
           "banks": {
@@ -2821,7 +2821,7 @@
         },
         {
           "key": "atto3:premium",
-          "name": "ATTO 3 \u00b7 PREMIUM",
+          "name": "ATTO 3 · PREMIUM",
           "srp": 1918000,
           "cashDiscount": 170000,
           "banks": {
@@ -3265,7 +3265,7 @@
         },
         {
           "key": "shark6-dmo:advance",
-          "name": "SHARK 6 DMO \u00b7 ADVANCE",
+          "name": "SHARK 6 DMO · ADVANCE",
           "srp": 2458000,
           "cashDiscount": 50000,
           "banks": {
@@ -3487,7 +3487,7 @@
         },
         {
           "key": "shark6-dmo:premium",
-          "name": "SHARK 6 DMO \u00b7 PREMIUM",
+          "name": "SHARK 6 DMO · PREMIUM",
           "srp": 2688000,
           "cashDiscount": 70000,
           "banks": {
@@ -4087,7 +4087,7 @@
         },
         {
           "key": "emax9-dmi:advance",
-          "name": "eMAX 9 DM-i \u00b7 ADVANCE",
+          "name": "eMAX 9 DM-i · ADVANCE",
           "srp": 2858000,
           "cashDiscount": null,
           "banks": {
@@ -4309,7 +4309,7 @@
         },
         {
           "key": "emax9-dmi:premium",
-          "name": "eMAX 9 DM-i \u00b7 PREMIUM",
+          "name": "eMAX 9 DM-i · PREMIUM",
           "srp": 3178000,
           "cashDiscount": null,
           "banks": {
