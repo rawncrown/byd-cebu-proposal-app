@@ -15,6 +15,13 @@ export function validatePricing(data) {
     if (!/^\d{4}-\d{2}$/.test(c.id) || Number(c.id.slice(5))<1 || Number(c.id.slice(5))>12 || ids.has(c.id)) throw Error('Each month must be unique and valid.');
     ids.add(c.id);
     if (typeof c.label !== 'string' || !c.label.trim() || c.label.length>100) throw Error('Enter a month title (up to 100 characters).');
+    if (c.perks !== undefined) {
+      if (!Array.isArray(c.perks) || c.perks.length > 5) throw Error('Invalid free-service promos.');
+      for (const p of c.perks) {
+        if (typeof p?.label !== 'string' || !p.label.trim() || p.label.length > 80) throw Error('Enter the free service name (up to 80 characters).');
+        number(p.regularPrice,'Regular fee'); if (!p.regularPrice) throw Error('Regular fee must be greater than zero.');
+      }
+    }
     if (!Array.isArray(c.vehicles) || !c.vehicles.length) throw Error('No vehicles in this month.');
     const keys = new Set();
     for (const v of c.vehicles) {

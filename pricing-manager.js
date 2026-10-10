@@ -9,7 +9,7 @@ function option(value,text){const el=document.createElement('option');el.value=v
 function amount(input,nullable=false){if(input.value.trim()===''){if(nullable)return null;throw Error('Complete all amounts for every enabled tier.');}const n=Number(input.value);if(!Number.isFinite(n)||n<0)throw Error('Amounts must be zero or greater.');return n;}
 function render(){
  $('campaign').replaceChildren(...data.campaigns.map(c=>option(c.id,c.label)));$('campaign').value=month;
- $('label').value=campaign().label;$('active').textContent='Month used in quotations: '+activeCampaign(data).label;
+ $('label').value=campaign().label;const perk=campaign().perks?.[0];$('perk-label').value=perk?.label??'';$('perk-fee').value=perk?.regularPrice??'';$('active').textContent='Month used in quotations: '+activeCampaign(data).label;
  if(!campaign().vehicles.some(v=>v.key===vehicle))vehicle=campaign().vehicles[0].key;
  $('vehicle').replaceChildren(...campaign().vehicles.map(v=>option(v.key,v.name)));$('vehicle').value=vehicle;
  $('srp').value=current().srp;$('discount').value=current().cashDiscount??'';$('bank').value=bank;
@@ -30,7 +30,7 @@ function commit(){
  const v=current();const rows={};
  for(const row of $('quotes').rows){if(!row.querySelector('input[type=checkbox]').checked)continue;const inputs=[...row.querySelectorAll('input[type=number]')];rows[row.dataset.tier]={cashOut:amount(inputs[0]),monthly:Object.fromEntries(inputs.slice(1).map(i=>[i.dataset.field,amount(i)]))};}
  const next=structuredClone(data),c=next.campaigns.find(c=>c.id===month),nv=c.vehicles.find(v=>v.key===vehicle);
- c.label=$('label').value.trim();nv.srp=amount($('srp'));nv.cashDiscount=amount($('discount'),true);
+ c.label=$('label').value.trim();const perkLabel=$('perk-label').value.trim(),perkFee=amount($('perk-fee'),true);if(perkFee&&!perkLabel)throw Error('Enter the free service name.');if(perkLabel&&perkFee==null)throw Error('Enter the regular fee for the free service.');if(perkLabel&&perkFee)c.perks=[{id:c.perks?.[0]?.id||'perk-1',label:perkLabel,regularPrice:perkFee}];else delete c.perks;nv.srp=amount($('srp'));nv.cashDiscount=amount($('discount'),true);
  if(Object.keys(rows).length)nv.banks[bank]=rows;else delete nv.banks[bank];
  validatePricing(next);data=next;
 }

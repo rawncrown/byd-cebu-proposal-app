@@ -5,7 +5,14 @@
   "campaigns": [
     {
       "id": "2026-10",
-      "label": "FREE Wall Charger Installation",
+      "label": "October 2026 promo",
+      "perks": [
+        {
+          "id": "wall-charger",
+          "label": "Wall Charger Installation",
+          "regularPrice": 20000
+        }
+      ],
       "vehicles": [
         {
           "key": "atto2-ev:premium",
