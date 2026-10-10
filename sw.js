@@ -1,4 +1,4 @@
-const CACHE_NAME = "byd-proposal-v12";
+const CACHE_NAME = "byd-proposal-v13";
 const BASE_PATH = new URL("./", self.location.href).pathname;
 const APP_SHELL = [BASE_PATH, `${BASE_PATH}manifest.webmanifest`, `${BASE_PATH}icon-192.png`, `${BASE_PATH}icon-512.png`];
 
@@ -19,14 +19,23 @@ self.addEventListener("fetch", (event) => {
   const canCache = url.origin === self.location.origin || url.hostname === "cdn.jsdelivr.net";
   if (!canCache) return;
 
+  // Shared pricing must refresh after a promo is published, without a new app build.
+  if (url.origin === self.location.origin && url.pathname.endsWith('/pricing.json')) {
+    event.respondWith(fetch(event.request, { cache: 'no-store' }).then(response => {
+      if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
+      return response;
+    }).catch(() => caches.match(event.request).then(cached => cached || Response.error())));
+    return;
+  }
+
   if (event.request.mode === "navigate") {
     event.respondWith(
       fetch(event.request)
         .then((response) => {
-          caches.open(CACHE_NAME).then((cache) => cache.put(BASE_PATH, response.clone()));
+          if (response.ok) caches.open(CACHE_NAME).then((cache) => cache.put(event.request, response.clone()));
           return response;
         })
-        .catch(() => caches.match(BASE_PATH)),
+        .catch(() => caches.match(event.request).then(cached => cached || Response.error())),
     );
     return;
   }
