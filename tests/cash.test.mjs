@@ -7,7 +7,7 @@ const asset=html.match(/src="\.\/(assets\/index-[^"]+\.js)"/)[1];
 const source=fs.readFileSync(new URL(asset,root),'utf8');
 // Parse as plain JavaScript too: catches malformed JSX-runtime edits that
 // Node's automatic syntax detection can otherwise interpret as type syntax.
-new vm.Script(source.replace(/^import[^;]+;/,'').replace('await loadPricing()','null').replaceAll('import.meta','({url:""})').replace(/export\{[^}]+\};?\s*$/,''));
+new vm.Script(source.replace(/import\s*\{[^}]+\}\s*from\s*["'][^"']+["'];/g,'').replace('await loadPricing()','null').replaceAll('import.meta','({url:""})').replace(/export\{[^}]+\};?\s*$/,''));
 const pricing=JSON.parse(fs.readFileSync(new URL('pricing.json',root),'utf8'));
 const vehicles=pricing.campaigns.find(c=>c.id===pricing.activeCampaignId).vehicles;
 const discounts=Object.fromEntries(vehicles.map(v=>[v.key,v.cashDiscount||0]));
